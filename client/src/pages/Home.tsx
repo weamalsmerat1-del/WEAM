@@ -28,6 +28,8 @@ import {
 } from "lucide-react";
 import { categories, drive, driveFolders, profile, projects, skills, type CategoryId, type Project, type DriveFile } from "@/data/portfolio";
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 function BrandMark({ light = false }: { light?: boolean }) {
   return (
     <span className={`brand-mark ${light ? "brand-mark--light" : ""}`} aria-hidden="true">
@@ -201,7 +203,7 @@ export default function Home() {
             </div>
             <div className="hero-visual reveal reveal--delay">
               <div className="hero-image-frame">
-                <img src="/media/hero.jpg" alt="مشهد بصري من أعمال وئام السمرات" />
+                <img src={publicAsset("media/hero.jpg")} alt="مشهد بصري من أعمال وئام السمرات" />
                 <div className="hero-image-wash" />
                 <div className="hero-image-caption">
                   <span>01 / 08</span>
@@ -288,7 +290,7 @@ export default function Home() {
           <div className="about-backdrop" aria-hidden="true">W</div>
           <div className="page-width about-inner">
             <div className="about-media reveal">
-              <div className="about-image"><img src="/media/identity.jpg" alt="لوحة الهوية البصرية لوئام السمرات" /></div>
+              <div className="about-image"><img src={publicAsset("media/identity.jpg")} alt="لوحة الهوية البصرية لوئام السمرات" /></div>
               <div className="about-card"><span>دبلوم</span><strong>إدارة أعمال</strong><small>مع تدريب عملي لدى شركة كهرباء إربد</small></div>
             </div>
             <div className="about-copy reveal reveal--delay">
@@ -311,7 +313,7 @@ export default function Home() {
           <div className="materials-grid">
             <div className="avatar-card reveal">
               <div className="avatar-topline"><span>AVATAR / 01</span><a href={drive.avatar} target="_blank" rel="noreferrer">المصدر <ArrowUpLeft size={14} /></a></div>
-              <div className="avatar-video-wrap"><video src="/media/avatar.mp4" autoPlay loop muted playsInline aria-label="فيديو الافتار الصامت" /><div className="avatar-play"><Play size={16} fill="currentColor" /></div><span className="silent-pill">صامت بالكامل</span></div>
+              <div className="avatar-video-wrap"><video src={publicAsset("media/avatar.mp4")} autoPlay loop muted playsInline aria-label="فيديو الافتار الصامت" /><div className="avatar-play"><Play size={16} fill="currentColor" /></div><span className="silent-pill">صامت بالكامل</span></div>
               <div className="avatar-caption"><strong>الافتار يتحرك،<br />والصوت ليس ضروريًا.</strong><span>حركة ناعمة بلا موسيقى أو مؤثرات صوتية.</span></div>
             </div>
             <div className="presentation-stack reveal reveal--delay">
@@ -323,7 +325,7 @@ export default function Home() {
                   <ArrowUpLeft size={19} />
                 </a>
               ))}
-              <a className="cv-card" href="/docs/Weam-Alsmerat-CV.docx" download>
+              <a className="cv-card" href={publicAsset("docs/Weam-Alsmerat-CV.docx")} download>
                 <span className="cv-icon"><FileText size={21} /></span><span><small>CURRICULUM VITAE</small><strong>السيرة الذاتية</strong></span><Download size={18} />
               </a>
             </div>
