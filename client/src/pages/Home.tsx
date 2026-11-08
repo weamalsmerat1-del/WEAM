@@ -252,7 +252,7 @@ export default function Home() {
           <div className="project-grid">
             {visibleProjects.map((project, index) => (
               <button key={project.id} className={`project-card project-card--${index % 3} reveal`} onClick={() => setActiveProject(project)}>
-                <div className="project-image-wrap"><img src={project.image} alt={project.title} /><span className="project-open"><CircleArrowOutUpRight size={18} /></span></div>
+                <div className="project-image-wrap"><img src={publicAsset(project.image)} alt={project.title} /><span className="project-open"><CircleArrowOutUpRight size={18} /></span></div>
                 <div className="project-card__meta"><span>{project.categoryLabel}</span><span>{project.year}</span></div>
                 <h3>{project.title}</h3>
                 <p>{project.subtitle}</p>
@@ -345,7 +345,7 @@ export default function Home() {
         <div className="project-modal" role="dialog" aria-modal="true" aria-label={activeProject.title} onClick={() => setActiveProject(null)}>
           <div className="project-modal__panel" onClick={(event) => event.stopPropagation()}>
             <button className="modal-close" onClick={() => setActiveProject(null)} aria-label="إغلاق"><X size={20} /></button>
-            <div className="modal-media"><img src={activeProject.image} alt={activeProject.title} /></div>
+            <div className="modal-media"><img src={publicAsset(activeProject.image)} alt={activeProject.title} /></div>
             <div className="modal-copy"><span className="modal-kicker">{activeProject.categoryLabel} · {activeProject.year}</span><h2>{activeProject.title}</h2><p>{activeProject.note}</p><a href={drive.root} target="_blank" rel="noreferrer" className="text-button">مشاهدة المصدر <ArrowUpLeft size={15} /></a></div>
           </div>
         </div>
